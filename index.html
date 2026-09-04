@@ -428,9 +428,11 @@
 <script>
   // Show a real screenshot as soon as the file exists; otherwise keep the placeholder.
   document.querySelectorAll('.phone .screen img').forEach(function (img) {
-    var reveal = function () { img.closest('.phone').classList.add('has-shot'); };
-    if (img.complete && img.naturalWidth > 0) reveal();
-    else img.addEventListener('load', reveal);
+    var reveal = function () {
+      if (img.naturalWidth > 0) img.closest('.phone').classList.add('has-shot');
+    };
+    if (img.complete) reveal();
+    img.addEventListener('load', reveal);
   });
 
   // Nav hairline once scrolled.

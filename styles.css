@@ -443,14 +443,20 @@ section.band { padding: 74px 0; }
   overflow: hidden;
   background: linear-gradient(170deg, #14171f, #0b0d12);
 }
+/* The image keeps a layout box (opacity, not display:none) — otherwise
+   loading="lazy" never fires and the screenshot would never load at all. */
 .phone .screen img {
-  display: none;
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 0;
+  z-index: 2;
+  transition: opacity 0.35s ease;
 }
-.phone.has-shot .screen img { display: block; }
-.phone.has-shot .ph { display: none; }
+.phone.has-shot .screen img { opacity: 1; }
+.phone.has-shot .ph { opacity: 0; }
 
 /* dynamic island */
 .phone .screen::after {
@@ -469,6 +475,8 @@ section.band { padding: 74px 0; }
 .ph {
   position: absolute;
   inset: 0;
+  z-index: 1;
+  transition: opacity 0.35s ease;
   display: grid;
   place-content: center;
   justify-items: center;
