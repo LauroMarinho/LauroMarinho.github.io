@@ -22,7 +22,7 @@
   --radius-md: 18px;
   --radius-sm: 11px;
 
-  --maxw: 1080px;
+  --maxw: 1180px;
   --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
     "Segoe UI", Inter, system-ui, "Helvetica Neue", Arial, sans-serif;
   --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
@@ -285,7 +285,7 @@ section.band { padding: 74px 0; }
   margin-bottom: 26px;
   overflow: hidden;
   display: grid;
-  grid-template-columns: 1fr 330px;
+  grid-template-columns: 1fr 524px;
   gap: 40px;
   align-items: center;
 }
@@ -298,7 +298,7 @@ section.band { padding: 74px 0; }
   opacity: 0.14;
   pointer-events: none;
 }
-.app:nth-child(even) { grid-template-columns: 330px 1fr; }
+.app:nth-child(even) { grid-template-columns: 524px 1fr; }
 .app:nth-child(even) .app-body { order: 2; }
 .app:nth-child(even) .app-shots { order: 1; }
 
@@ -406,23 +406,26 @@ section.band { padding: 74px 0; }
    ========================================================================== */
 .app-shots {
   display: flex;
-  gap: 16px;
+  gap: 20px;
   justify-content: center;
   align-items: flex-start;
 }
-.app-shots .phone:nth-child(2) { margin-top: 30px; }
-@media (max-width: 460px) {
-  .app-shots { gap: 12px; }
-  .app-shots .phone:nth-child(2) { margin-top: 20px; }
+.app-shots .phone:nth-child(2) { margin-top: 44px; }
+/* On a phone, stack the two screens instead of shrinking them to nothing —
+   the screenshots are the point of the card. */
+@media (max-width: 620px) {
+  .app-shots { flex-direction: column; align-items: center; gap: 26px; }
+  .app-shots .phone { max-width: 272px; width: 100%; }
+  .app-shots .phone:nth-child(2) { margin-top: 0; }
 }
 
 .phone {
   position: relative;
   flex: 1 1 0;
-  max-width: 158px;
+  max-width: 252px;
   aspect-ratio: 9 / 19.5;
-  border-radius: 30px;
-  padding: 5px;
+  border-radius: 40px;
+  padding: 6px;
   background: linear-gradient(160deg, #2a2d36, #101218 55%, #23262e);
   box-shadow:
     0 22px 50px rgba(0, 0, 0, 0.55),
@@ -436,7 +439,7 @@ section.band { padding: 74px 0; }
   position: relative;
   width: 100%;
   height: 100%;
-  border-radius: 25px;
+  border-radius: 34px;
   overflow: hidden;
   background: linear-gradient(170deg, #14171f, #0b0d12);
 }
@@ -453,11 +456,11 @@ section.band { padding: 74px 0; }
 .phone .screen::after {
   content: "";
   position: absolute;
-  top: 7px;
+  top: 9px;
   left: 50%;
   transform: translateX(-50%);
-  width: 44%;
-  height: 13px;
+  width: 40%;
+  height: 17px;
   border-radius: 999px;
   background: #05060a;
   z-index: 3;
@@ -472,26 +475,26 @@ section.band { padding: 74px 0; }
   gap: 7px;
   text-align: center;
   padding: 14px;
-  border-radius: 25px;
+  border-radius: 34px;
   border: 1.5px dashed rgba(255, 255, 255, 0.16);
   background:
     repeating-linear-gradient(45deg, rgba(255,255,255,0.018) 0 9px, transparent 9px 18px);
 }
 .ph .ico {
-  width: 26px;
-  height: 26px;
+  width: 32px;
+  height: 32px;
   opacity: 0.4;
   fill: #fff;
 }
 .ph span {
-  font-size: 11.5px;
+  font-size: 13px;
   font-weight: 600;
   color: var(--text-faint);
   letter-spacing: 0.03em;
 }
 .ph small {
   font-family: var(--mono);
-  font-size: 9.5px;
+  font-size: 10.5px;
   color: rgba(255, 255, 255, 0.26);
   word-break: break-all;
   line-height: 1.35;
