@@ -562,6 +562,18 @@ section.band { padding: 74px 0; }
 .work .feats li { font-size: 14.5px; }
 .work .chips { margin-bottom: 0; margin-top: auto; padding-top: 6px; }
 
+.disclaimer {
+  margin: 10px 0 0;
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: var(--text-faint);
+  font-style: italic;
+}
+.work .disclaimer { margin: -6px 0 12px; font-size: 13px; }
+
+.work .links { margin-top: 16px; }
+.work .chips { margin-top: auto; }
+
 .note {
   margin-top: 24px;
   font-size: 14px;
